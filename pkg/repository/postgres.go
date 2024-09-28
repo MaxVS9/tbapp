@@ -36,4 +36,3 @@ func NewPostgresDB(cfg Config) (*sqlx.DB, error) {
 
 	return db, nil
 }
-Sfjks-KSDok*s=2
