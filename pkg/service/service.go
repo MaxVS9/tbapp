@@ -1,11 +1,15 @@
 package service
 
-import "restapi/pkg/repository"
+import (
+	"restapi"
+	"restapi/pkg/repository"
+)
 
 type Authorization interface {
 }
 
 type TodoList interface {
+	Create(list restapi.TodoList) (int, error)
 }
 
 type TodoItem interface {
@@ -18,5 +22,7 @@ type Service struct {
 }
 
 func NewService(repos *repository.Repository) *Service {
-	return &Service{}
+	return &Service{
+		TodoList: NewListService(repos.TodoList),
+	}
 }
